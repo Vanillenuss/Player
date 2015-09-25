@@ -1,0 +1,29 @@
+html, body {
+  width: 160px;
+  height: 90px;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+}
+
+div.img-icon {
+  box-sizing: border-box;
+  width: 160px;
+  height: 90px;
+  border: 2px solid red;
+  display: block;
+  background-repeat: no-repeat;
+}
+
+div.img-label {
+  background-color: rgba(86, 86, 86, 0.7);
+  color: white;
+  font-weight: bold;
+  width: 156px;
+  margin-top: 70px;
+  height: 16px;
+  font-size: 11px;
+  line-height: 16px;
+  padding: 0 2px;
+  box-sizing: border-box;
+}

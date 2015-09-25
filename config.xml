@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="de.uni_luebeck.imis.infogrid" version="2.4" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>InfoGridPlayer</name>
+    <description>
+        InfoGrid provides information to owners on private mobile devices, which enriches their local physically experiences with virtual information. Via "geolocation" (including GPS) outside of buildings and "pattern recognition" inside, they are able to see the world through their mobile device and additional overlays they can interact with. This information (media) can consist of text, audio, image, video or 3D objects.
+    </description>
+    <author email="winkler@imis.uni-luebeck.de" href="http://infogrid.mesh.de">Thomas Winkler</author>
+    <preference name="BackgroundColor" value="0xffffffff"/>
+  <preference name="android-minSdkVersion" value="16"/>  <platform name="android">
+        <preference name="SplashScreen" value="screen"/>
+        <preference name="SplashScreenDelay" value="15000"/>
+        <preference name="Fullscreen" value="true" />
+        <preference name="ShowTitle" value="false"/>
+    </platform>
+    <content src="index.html" />
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <allow-intent href="architect://*" />
+</widget>

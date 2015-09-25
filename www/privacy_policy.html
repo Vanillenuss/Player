@@ -1,0 +1,203 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Type" content="application/json; charset=utf-8">
+
+    <!-- Disables automatic detection of possible phone numbers in a webpage in Safari on iOS. -->
+    <meta name="format-detection" content="telephone=no" />
+    <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+    <meta name="viewport" content="user-scalable=no, initial-scale=1" />
+
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/fontello.css">
+
+    <style type="text/css" media="screen">
+      window,html,body {
+        overflow-x:hidden !important;
+        -webkit-overflow-scrolling: touch !important;
+        overflow: scroll !important;
+      }
+      
+      body {
+        -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+        -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+        
+        -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+        -moz-user-select: none;
+        -ms-user-select: none;
+        -o-user-select: none;
+        user-select: none; 
+
+        font-size: 100%;  
+        font-family: 'Open Sans', 'Lucida Grande', Helvetica, Arial, sans-serif;
+        color: #444;
+        line-height: 18px;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        overflow: hidden; /* this is important to prevent the whole page to bounce */
+      }
+
+      header, footer {
+        border: 1px solid #b3b3b3 /*{a-bar-border}*/;
+        background: #E1E1E1;
+        color: #818181;
+        text-shadow: 0 /*{a-bar-shadow-x}*/ 1px /*{a-bar-shadow-y}*/ 0 /*{a-bar-shadow-radius}*/ #ffffff /*{a-bar-shadow-color}*/;
+        background-image: -webkit-gradient(linear, left top, left bottom, from( #f0f0f0 /*{a-bar-background-start}*/), to( #dddddd /*{a-bar-background-end}*/));
+        background-image: -webkit-linear-gradient( #f0f0f0 /*{a-bar-background-start}*/, #dddddd /*{a-bar-background-end}*/);
+        background-image: -moz-linear-gradient( #f0f0f0 /*{a-bar-background-start}*/, #dddddd /*{a-bar-background-end}*/);
+        background-image: -ms-linear-gradient( #f0f0f0 /*{a-bar-background-start}*/, #dddddd /*{a-bar-background-end}*/);
+        background-image: -o-linear-gradient( #f0f0f0 /*{a-bar-background-start}*/, #dddddd /*{a-bar-background-end}*/);
+        background-image: linear-gradient( #f0f0f0 /*{a-bar-background-start}*/, #dddddd /*{a-bar-background-end}*/);
+
+        height: 36px;
+
+        left: 0;
+        right: 0;
+        width: 100%;
+        position: fixed;
+        z-index: 1000;
+        border-left-width: 0;
+        border-right-width: 0;
+      }
+
+      footer {
+        height: 25px;
+        line-height: 22px;
+        padding: 0 10px;
+      }
+
+      footer a {
+        font-size: 12px;
+      }
+    </style>
+
+    <script type="text/javascript" charset="utf-8" async defer>
+      function backButton() {
+        window.history.back()
+      }
+    </script>
+
+    <title>InfoGrid</title>
+  </head>
+  <body>
+    <div id="content" class="content container-fluid">
+      <div class="top">
+        <h3>Datenschutzerklärung</h3>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <p>In der Datenschutzerklärung wird erläutert:</p>
+          <ul>
+            <li>Welche Informationen erhoben werden und aus welchem Grund.</li>
+            <li>Wie diese Informationen genutzt werden.</li>
+            <li>Welche Wahlmöglichkeiten anboten werden, auch im Hinblick darauf, wie auf Informationen zugegriffen werden kann und wie diese aktualisiert werden können.</li>
+          </ul>
+          <p>Im Rahmen der <button type="button" class="btn-link" onclick="window.open('http://www.kimm.uni-luebeck.de/', '_blank', 'location=yes');" style="padding: 2px 0;">KiMM-Initiative</button> werden seit 2004 eine Vielzahl von digitalen Werkzeugen wie auch Konzepte medial angereicherter Lernräume entwickelt. Wir bieten Schulen oder außerschulischen Einrichtungen, die mit uns gemeinsam an der Entwicklung und Forschung neuer Lernszenarien und Lernmedien arbeiten, eine kostenlose Nutzung unserer ALS-Lernapplikationen (<button type="button" class="btn-link" onclick="window.open('http://www.kimm.uni-luebeck.de/de/kontakt', '_blank', 'location=yes');" style="padding: 2px 0;">nach einem Antrag auf Freischaltung</button>) an. ALS steht hierbei für <button type="button" class="btn-link" onclick="window.open('http://www.kimm.uni-luebeck.de/de/kimm/amiente-lernraeume', '_blank', 'location=yes');" style="padding: 2px 0;">Ambient Learning Spaces</button> und beschreibt den Forschungsbereich, indem die Systeme entwickelt werden. Hierzu gehören unter anderem InfoGrid und MoLES. Bei der Benutzung werden viele personenbezogene Daten generiert und akquiriert, die den folgenden Datenschutzbestimmungen unterliegen.</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <h4>Geltungsbereich</h4>
+          <p>Diese Datenschutzerklärung klärt Nutzer über die Art, den Umfang und Zwecke der Erhebung und Verwendung personenbezogener Daten durch den verantwortlichen Anbieter (soweit nicht anders gekennzeichnet, ist dies das Institut für Multimediale und Interaktive Systeme (IMIS)) auf. Diese Datenschutzbestimmung gilt für alle Produkte, Dienste und Webseiten die mit den ALS-Lernapplikationen in Zusammenhang stehen und von diesem Anbieter angeboten werden.</p>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-md-12">
+          <h4>Welche Informationen erhoben werden</h4>
+          <p>Es werden Informationen erhoben, um allen unseren Nutzern bessere Dienste zur Verfügung zu stellen. Dies geschieht zum Beispiel auch schon bei der Festlegung der Sprache, die Sie sprechen.</p>
+          <p>Informationen werden auf zwei Arten erhoben:</p>
+          <ul>
+            <li>Daten, die Sie uns mitteilen:<br>Zur Nutzung vieler Dienste müssen Sie beispielsweise zunächst ein Konto für die ALS-Lernapplikationen erstellen. Hierfür bitten wir Sie um die Angabe personenbezogener Daten wie Ihres Namens, Ihrer E-Mail-Adresse, ihrer bevorzugten Sprache, eines Benutzernamens und eines Passworts.</li>
+            <li>Informationen, die wir aufgrund Ihrer Nutzung unserer Dienste erhalten:<br>Wir erfassen möglicherweise Informationen über die von Ihnen genutzten Dienste und die Art dieser Nutzung beispielsweise dann, wenn Sie eine Website besuchen, auf der unsere Werbedienste verwendet werden, oder wenn Sie unsere Werbung und unsere Inhalte ansehen und damit interagieren. Zu diesen Informationen gehören:
+              <ul>
+                <li>gerätebezogene Informationen<br>Wir erfassen möglicherweise gerätespezifische Informationen, beispielsweise das Modell der von Ihnen verwendeten Hardware, die Version des Betriebssystems, eindeutige Gerätekennungen und Informationen über das Mobilfunknetz.</li>
+                <li>Protokolldaten<br>Wenn Sie unsere Dienste nutzen, erfassen und speichern wir bestimmte Daten gegebenenfalls in Serverprotokollen. Diese Protokolle können Folgendes enthalten:
+                  <ul>
+                    <li>Einzelheiten zu der Art und Weise, wie Sie unsere Dienste genutzt haben, beispielsweise die Ankunft an einem Point of Interest (POI), um bei einer Gelenkten Tour jenen Punkt nicht ein weiteres Mal ansteuern zu müssen.</li>
+                    <li>IP-Adresse<br>Daten zu Geräteereignissen wie Abstürze, Systemaktivität, Hardware-Einstellungen, Browser-Typ, Browser-Sprache, Datum und Uhrzeit Ihrer Anfrage und Referral-URL.</li>
+                    <li>Cookies, über die Ihr Browser oder Ihr Google-Konto eindeutig identifiziert werden können.</li>
+                    <li>Standortbezogene Informationen<br>Bei der Nutzung standortbezogener Dienste erfassen und verarbeiten wir möglicherweise Informationen über Ihren tatsächlichen Standort, wie zum Beispiel die von einem Mobilfunkgerät gesendeten GPS-Signale. Darüber hinaus verwenden wir zur Standortbestimmung verschiedene Technologien, zum Beispiel Sensordaten Ihres Geräts, die beispielsweise Informationen über nahegelegene WLAN-Zugänge oder Mobilfunkmasten enthalten können.</li>
+                    <li>Eindeutige Applikationsnummern<br>Bestimmte Dienste haben eine eindeutige Anwendungsnummer. Diese Information wird meistens für Nutzer verwendet, die einen Gastzugang verwenden und kein Konto erstellt haben.</li>
+                    <li>Lokale Speicherung<br>Möglicherweise erfassen und speichern wir Informationen (einschließlich personenbezogener Daten) lokal auf Ihrem Gerät, indem wir Mechanismen wie beispielsweise den Webspeicher Ihres Browsers (einschließlich HTML 5) und Anwendungsdaten-Caches nutzen.</li>
+                    <li>Cookies und anonyme Kennungen<br>Cookies sind hilfreich, um sich beispielsweise auf unseren Webseiten nicht jedes Mal wieder neu anmelden zu müssen.</li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-md-12">
+          <h4>Wie die erhobenen Informationen genutzt werden</h4>
+          <p>Wir nutzen die erhoben Informationen, um Ihnen maßgeschneiderte Inhalte anzubieten. Beispielsweise, um Ihnen auf Ihre Interessen hin maßgeschneiderte Touren im InfoGrid Player anzuzeigen.</p>
+          <p>Von den Daten, die Sie bei der Registrierung angegeben haben, wird nur der Benutzername auch für andere sichtbar sein. Alle weiteren Informationen benötigen wir zur Kontaktierung, falls beispielsweise ein Verstoß vorliegen sollte.</p>
+          <p>Wir nutzen die erhobenen Informationen auch unter begrenzten Umständen, um Sie mit vertrauenswürdigen Drittanbietern zu teilen, die dazu berechtigt wurden und die diese Daten auch nur bei Bedarf verwenden dürfen, um das Angebot von uns zur Verfügung stellen zu können. So wird Ihr Benutzerverhalten in anonymer Form mit Google Analytics analysiert und aus lizenzrechtlichen Gründen an die Wikitude GmbH weiter gegeben.</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <h4>Datensicherheit</h4>
+          <p>Wir bemühen uns intensiv darum, die ALS-Lernapplikationen und dessen Nutzer vor unbefugtem Zugriff auf oder vor unbefugter Veränderung, Weitergabe oder Zerstörung von Daten zu schützen. Wir befolgen die allgemein akzeptierten Industriestandards, um die an uns übermittelten, persönlichen Daten zu schützen, sowohl während der Übertragung, als auch bei ihrer Ankunft. Keine Methode der Übertragung oder der elektronischen Speicherung ist zu 100% sicher. Deshalb können wir die absolute Sicherheit nicht garantieren.</p>
+          <p>Die Anzahl der Nutzer unserer ALS-Lernapplikationen ist begrenzt auf eine kleine Anzahl von Schulen und außerschulischen Einrichtungen. Zudem sind die von den Gruppen erstellten Inhalte, soweit nicht anders eingestellt, zunächst nur in den jeweiligen Gruppen sichtbar.</p>
+          <p>Wenn Sie Fragen zur Sicherheit unserer ALS-Applikationen haben, dann kontaktieren Sie uns.</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <h4>Transparenz und Wahlmöglichkeit</h4>
+          <p>Bei der Erstellung von neuen Inhalten haben Sie die Möglichkeit einen unterschiedlichen Grad an Sichtbarkeit zu wählen. Also, ob nur Sie allein, Ihre Gruppe oder auch andere Personen einen Zugriff zu Ihren Inhalten bekommen.</p>
+          <p>Ihren Browser können Sie auch so einstellen, dass alle Cookies einschließlich der mit unseren Diensten verknüpften Cookies blockiert werden oder dass eine Meldung angezeigt wird, sobald ein Cookie von uns gesetzt wird. Bedenken Sie jedoch, dass viele unserer Dienste möglicherweise nicht ordnungsgemäß funktionieren, wenn Sie Cookies bei sich deaktiviert haben. Wir können dann beispielsweise Ihre bevorzugte Spracheinstellung nicht speichern.</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <h4>Korrektur und Aktualisierung der persönlichen Daten</h4>
+          <p>Wenn sie Daten ändern möchten, dieses aber nicht von sich aus können, dann kontaktieren Sie uns.</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <h4>Änderungen</h4>
+          <p>Unsere Datenschutzerklärung kann sich von Zeit zu Zeit ändern. Wir werden Ihre Rechte nach dieser Datenschutzerklärung nicht ohne Ihre ausdrückliche Einwilligung einschränken. Alle Änderungen der Datenschutzerklärung werden von uns auf dieser Seite veröffentlicht werden. Falls die Änderungen wesentlich sein sollten, werden wir eine noch deutlichere Benachrichtigung zur Verfügung stellen (einschließlich, im Falle bestimmter Dienste, einer Benachrichtigung per E-Mail über die Änderungen der Datenschutzerklärung). Außerdem werden wir ältere Versionen dieser Datenschutzerklärung zu Ihrer Einsicht in einem Archiv aufbewahren.</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12" style="margin-bottom: 25px;">
+          <h4>Kontakt</h4>
+
+          Institut für Multimediale und Interaktive Systeme (IMIS)<br>
+          Universität zu Lübeck<br>
+          Ratzeburger Allee 160<br>
+          23538 Lübeck<br><br><br>
+
+
+          +49 451 500 5101<br>
+          <button type="button" class="btn-link" onclick="window.open('http://www.imis.uni-luebeck.de', '_blank', 'location=yes');" style="padding: 2px 0;">http://www.imis.uni-luebeck.de</button><br><br>
+
+          Ansprechpartner<br>
+          <a href="mailto:winkler@imis.uni-luebeck.de">winkler@imis.uni-luebeck.de</a><br><br>
+        </div>
+      </div>
+    </div>
+
+    <footer class="navbar-fixed-bottom">
+      <a href="javascript:backButton();" style="margin-right: 15px;">Zurück</a>
+    </footer>
+
+    <script type="text/javascript" src="cordova.js"></script>
+  </body>
+</html>

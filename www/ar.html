@@ -1,0 +1,232 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+  	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  	<meta http-equiv="Content-Type" content="application/json; charset=utf-8">
+  	<meta name="format-detection" content="telephone=no" />
+    <!-- for iOS use the following line!!! -->
+    <!-- <meta name="viewport" content="user-scalable=no, user-zoom=fixed, initial-scale=1, maximum-scale=1, minimum-scale=1,target-densitydpi=device-dpi, width=device-width, height=device-height" /> -->
+    <title>InfoGrid</title>
+
+    <!-- Bootstrap -->    
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+
+    <link rel="stylesheet" type="text/css" href="css/lightbox.css">
+    <link rel="stylesheet" type="text/css" href="css/fontello.css">
+    <link rel="stylesheet" type="text/css" href="css/ar.css">
+
+    <script type="text/javascript">
+      function arrays_equal(a,b) {
+        if(a && b) {
+          a = a.sort();
+          b = b.sort();
+          return !(a<b || b<a);
+        } else return false;
+      }
+    </script>
+
+  </head>
+  <body>
+    
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="container" style="width: 100%;">
+        <div class="row" style="padding: 2px 0;">
+
+          <div class="col-xs-2 col-sm-1" style="padding: 0 3px;">
+            <button type="button" class="btn btn-default btn-sm dropdown-toggle" style="display: none;" data-toggle="collapse" data-target=".navbarx-collapse">
+              <span class="glyphicon glyphicon-align-justify"></span>
+            </button>
+            <button type="button" class="btn btn-default btn-sm cont" onclick="closeOverView();" style="display: none;"><span class="glyphicon glyphicon-arrow-left"></span></button>
+            <button type="button" class="btn btn-default btn-sm ir" onclick="closeRecognitionView();" style="display: none;"><span class="glyphicon glyphicon-arrow-left"></span></button>
+            <button type="button" class="btn btn-default btn-sm sv" onclick="closeSingleView();" style="display: none;"><span class="glyphicon glyphicon-arrow-left"></span></button>
+          </div>
+
+          <div class="col-xs-8 col-sm-10" style="padding: 0 3px;">
+            <button type="button" class="btn btn-default btn-sm btn-title" style="display: none;">
+              <span class="icon-direction"></span>&nbsp;
+              <span class="title"></span>
+            </button>
+            <span class="title cont" style="display: none;">Übersicht</span>
+            <span class="title ir" style="display: none;">Bilderkennung</span>
+            <span class="title sv" style="display: none;"></span>
+          </div>
+
+          <div class="col-xs-2 col-sm-1" style="padding: 0 3px;">
+            <button type="button" class="btn btn-default btn-sm btn-home" title="Tour beenden" onclick="World.closeWikitude();">
+              <span class="glyphicon glyphicon-home"></span>
+            </button>
+          </div>
+
+        </div>
+
+        <div class="row navbarx-collapse collapse">
+          <ul class="nav nav-poi"></ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container overview" style="display: none;">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="row list">
+            <div class="col-xs-10 col-xs-offset-1">
+              <a class="img" href="" data-lightbox="image-1">
+                <img class="img-thumbnail img-responsive text-center" src="">
+              </a>
+            </div>
+          </div>
+          <div class="row list" style="display: none;">
+            <div class="col-xs-12">
+              <h3></h3>
+              <h5>Erfahre mehr über diesen Ort</h5>
+              <div class="list-group"></div>
+            </div>
+          </div>
+          
+
+          <div class="row singleView" style="display:none;">
+            <div class="col-xs-12">
+              <div class="row img" style="display: none;">
+                <div class="col-xs-10 col-xs-offset-1">
+                  <a href="" data-lightbox="image-1">
+                    <img class="img-thumbnail img-responsive text-center" src="">
+                  </a>
+                </div>
+              </div>
+              <div class="row text" style="display: none;">
+                <div class="col-xs-12">
+                  <p class="text"></p>
+                </div>
+              </div>
+              <div class="row video" style="display:none;">
+                <div class="col-xs-12">
+                  <button type="button" id="videoBtn" class="btn btn-default btn-sm btn-block btn-video" onclick="World.playVideo(this);">Video abspielen</button>
+                </div>
+              </div>
+              <div class="row audio" style="display:none;">
+                <div class="col-xs-12">
+                  <button type="button" id="audioBtn" class="btn btn-default btn-sm btn-block btn-audio" onclick="World.playAudio(this);">Audio abspielen</button>
+                </div>
+              </div>
+
+              <div class="row paging" style="display:none;">
+                <div class="col-xs-6">
+                  <button type="button" class="btn btn-default btn-sm btn-prev" onclick="showPrevSingeViewPage();" style="display:none;">zurück</button>
+                </div>
+                <div class="col-xs-6 text-right">
+                  <button type="button" class="btn btn-default btn-sm btn-next" onclick="showNextSingeViewPage();">weiter</button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="player" style="display: none;"></div>
+    <div id="infobox" class="img-rounded" style="display: none;">
+      <div id="infoboxImg" style="display: none;">
+        <img class="img-thumbnail img-responsive text-center" src="">
+      </div>
+      <div id="infoboxDesc"></div>
+      <div id="irAudio" class="btnBlock" style="display: none;">
+        <button type="button" class="btn btn-default btn-sm btn-block btn-audio" onclick="World.playAudio();">Audio abspielen</button>
+      </div>
+      <div id="irVideo" class="btnBlock" style="display: none;">
+        <button type="button" class="btn btn-default btn-sm btn-block btn-video" onclick="World.playVideo();">Video abspielen</button>
+      </div>
+      <button type="button" class="btn btn-default btn-sm btn-block btn-close" onclick="World.closePopup();">Fenster schließen</button>
+    </div>
+
+    <div id="footer" style="display: none;">
+      <div class="title"></div>
+      <div class="text"></div>
+    </div>
+
+    <!-- narration finished Modal -->
+    <div class="modal fade" id="narrationFinishedModal" tabindex="-1" role="dialog" aria-labelledby="narrationFinishedModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="narrationFinishedModalLabel">Tour-Narration</h4>
+          </div>
+          <div class="modal-body"></div>
+          <div class="modal-footer">
+            <button class="btn btn-default btn-sm nr-close" onclick="World.closeNarrationFinishedModal();" style="display: none;">schließen</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <script id="poi_icon" type="text/x-handlebars-template">
+      <html>
+        <head>
+          <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+          <meta name="viewport" content="user-scalable=no, user-zoom=fixed, initial-scale=1, maximum-scale=1, minimum-scale=1,target-densitydpi=device-dpi, width=device-width, height=device-height" />
+          <title>Icon</title>
+          <style type="text/css">
+            html, body {
+              width: 160px;
+              height: 90px;
+              padding: 0;
+              margin: 0;
+              overflow: hidden;
+            }
+
+            img.img-icon {
+              box-sizing: border-box;
+              width: 160px;
+              height: 90px;
+              border: 4px solid {{borderColor}};
+              display: block;
+            }
+
+            div.img-label {
+              position: absolute;
+              background-color: rgba(86, 86, 86, 0.7);
+              color: white;
+              font-weight: bold;
+              width: 152px;
+              left: 4px;
+              top: 68px;
+              height: 18px;
+              z-index: 10;
+              font-size: 12px;
+              line-height: 18px;
+              padding: 0 2px;
+              box-sizing: border-box;
+              text-overflow: ellipsis;
+              text-rendering: optimizeLegibility;
+              white-space: nowrap;
+              overflow: hidden;
+            }
+          </style>
+        </head>
+        <body>
+          <img class="img-icon poi_icon{{id}}" src="{{local_url}}" alt="icon"/>
+          <div class="img-label">{{title}}</div>
+        </body>
+      </html>
+    </script>
+
+    
+    <!-- main JS code of this scene -->
+    <script type="text/javascript" src="architect://architect.js"></script>
+    <!-- <script type="text/javascript" src="js/ade.js"></script> -->
+
+    <script type="text/javascript" src="jquery/jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/handlebars-v2.0.0.js"></script>
+    <script type="text/javascript" src="js/lightbox-2.6.min.js"></script>
+    <script type="text/javascript" src="js/clustering.js"></script>
+    <script type="text/javascript" src="js/FileHandler.js"></script> 
+    <script type="text/javascript" src="js/marker.js"></script> 
+    <script type="text/javascript" src="js/world.js" defer></script>
+
+  </body>
+</html>

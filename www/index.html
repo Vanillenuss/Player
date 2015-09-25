@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Type" content="application/json; charset=utf-8">
+
+    <!-- Disables automatic detection of possible phone numbers in a webpage in Safari on iOS. -->
+    <meta name="format-detection" content="telephone=no" />
+    <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+    <meta name="viewport" content="user-scalable=no, initial-scale=1" />
+    <!-- Bootstrap -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap-select.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="css/fontello.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="css/list.css" />
+    <link rel="stylesheet" type="text/css" href="css/flags.css" />
+
+    <title>InfoGrid</title>
+  </head>
+  <body>
+    <header class="navbar-fixed-top container-fluid" style="display: none;">
+      <div class="row">
+        <div class="col-xs-2">
+          <button type="button" class="back text-left" onclick="logout();">
+            <span class="glyphicon glyphicon-arrow-left"></span>
+          </button>
+        </div>
+        <div class="col-xs-8" style="padding: 0;">
+          <h1>InfoGrid Login</h1>
+        </div>
+        <div class="col-xs-2">
+          <button type="button" class="refresh text-right" onclick="loadTourlist();">
+            <span class="icon-arrows-cw"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <div class="download-progress" style="display: none;">
+      <div>Downloading...</div>
+      <div class="progress">
+        <div class="progress-bar" role="progressbar">0%</div>
+      </div>
+    </div>
+
+    <div id="content" class="content container-fluid" style="display: none;">
+
+      <div class="row" style="margin-top: -10px; margin-bottom: 35px;">
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
+          <img src="img/infogrid_logo.svg" style="width: 100%;" />
+        </div>
+      </div>
+
+      <div class="row" style="margin-bottom: 10px;">
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
+
+          <div class="alert alert-danger alert1" style="display: none;">
+            <p class="text-center">Benutzername und/oder Passwort fehlerhaft</p>
+          </div>
+
+          <div class="alert alert-warning alert2" style="display: none;">
+            <p class="text-center">Keine Internetverbindung</p>
+          </div>
+
+          <form role="form" class="login" action="javascript:void(0);">
+
+            <div class="form-group">
+              <div class="input-group">
+                <span class="iconHolder input-group-addon">
+                  <span class="icon-user"></span>
+                </span>
+                <input type="text" class="username form-control" placeholder="Benutzername" required oninput="checkIfUserAndPasswordAreEmpty();">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="input-group">
+                <span class="iconHolder input-group-addon">
+                  <i class="icon-key"></i>
+                </span>
+                <input type="password" class="password form-control" placeholder="Passwort" required oninput="checkIfUserAndPasswordAreEmpty();">
+              </div>
+            </div>
+
+            <div class="checkbox" style="margin-left: 15px;">
+              <label for="remember" style="font-size: 14px; margin-left: 17px;">
+                                <input id="remember" type="checkbox" name="remember">
+              <div class="checkboxReplace">
+                    <span class="glyphicon glyphicon-ok"></span>
+                </div>
+                 Benutzername merken?
+              </label>
+            </div>
+            <br>
+            <button type="submit" class="login_normal btn btn-default btn-block" disabled>Anmelden</button>
+
+          </form>
+        </div>
+      </div>
+
+      <div class="row language" style="margin-bottom: 25px;">
+        <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
+          <div class="input-group">
+            <button type="button" class="login_guest btn btn-default btn-md btn-block no-right-radius">Gast</button>
+            <div class="input-group-btn">
+              <select class="selectpicker" data-width="auto">
+                <option value="de" data-content="<img src='img/empty.png' class='flag flag-de' alt='Deutsch' />">Deutsch</option>
+                <option value="en" data-content="<img src='img/empty.png' class='flag flag-gb' alt='English' />">English</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <footer class="navbar-fixed-bottom">
+      <a href="legal_notice.html" style="margin-right: 15px;">Impressum</a>
+      <a href="privacy_policy.html" style="">Datenschutzerklärung</a>
+    </footer>
+    
+    <script src="jquery/jquery-2.1.1.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="bootstrap/js/bootstrap-select.min.js"></script>
+    <script src="js/handlebars-v2.0.0.js"></script>
+
+    <script src="js/crypto-min.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/jaydata.min.js"></script>
+    <script type="text/javascript" src="js/jquery.labelselect.js"></script>
+    <script type="text/javascript" src="js/FileHandler.js"></script>
+    <script type="text/javascript" src="js/handleTourData.js"></script>
+    <script type="text/javascript" src="js/handlePOIData.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+
+
+    <script id="list_view" type="text/x-handlebars-template">
+      <div class="alert alert-warning" style="display: none;">
+        <p class="text-center"></p>
+      </div>
+
+      <div id="tourlist"></div>
+    </script>
+
+
+    <script id="tourdates_as_list" type="text/x-handlebars-template">
+    <div class="tourItem" data-id="{{tourID}}">
+
+      <div class="imageHolder">
+        <img src="{{localIconURL}}" alt="icon" data-serverurl="{{serverIconURL}}" onerror="imgOnError(this);" class="img-rounded" />
+      </div>
+
+        <div class="info">
+            <span class="title">{{tourtitle}}</span>
+            {{#unless access_anywhere}}
+            <span class="distance">
+              <span class="label label-default" data-toggle="tooltip" title="{{d_label}}"><span class="glyphicon glyphicon-flag"></span> {{distance}} km</span>
+            </span>
+            {{/unless}}  
+            <span class="label label-primary book" style="display: none;" data-toggle="tooltip" title="{{nr_label}}"><span class="glyphicon glyphicon-book"></span></span>
+            {{#if hasWtcFile}}
+            <span class="label label-warning camera" data-toggle="tooltip" title="{{ir_label}}"><span class="glyphicon glyphicon-camera"></span></span>
+            {{/if}}
+        </div>
+
+        <nav>
+            <ul>
+                <li>
+                    <button type="button" id="btn_info" class="button" onclick="showTourDescription({{tourID}});">
+                        <span class="glyphicon glyphicon-info-sign"></span>
+                    </button>
+                    <button type="button" id="btn_start" class="button" data-id="{{tourID}}" data-wtc="{{wtcFile}}" data-aa="{{access_anywhere}}" onclick="tourlistItemOnClick(this);">
+                        <span class="glyphicon glyphicon-play"></span>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    </script>
+
+    <!-- available stories Modal -->
+    <div class="modal fade" id="availableStoriesModal" tabindex="-1" role="dialog" aria-labelledby="availableStoriesModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="availableStoriesModalLabel">Tour-Narration</h4>
+          </div>
+          <div class="modal-body"></div>
+          <div class="modal-footer">
+            <button class="btn btn-default btn-sm nr-next" onclick="startTour(false);">weiter</button>
+            <button class="btn btn-default btn-sm nr-activate" onclick="showAvailableStories();">aktivieren</button>
+            <button class="btn btn-default btn-sm nr-delete" onclick="deleteActiveSession();">löschen</button>
+            <button class="btn btn-default btn-sm nr-continue" onclick="continueActiveSession();">fortsetzen</button>
+            <button class="btn btn-default btn-sm nr-start" onclick="startTour(true)" style="display: none;">starten</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- tour description Modal -->
+    <div class="modal fade" id="tourDescriptionModal" tabindex="-1" role="dialog" aria-labelledby="tourDescriptionModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body"></div>
+        </div>
+      </div>
+    </div>
+
+
+    <script type="text/javascript" defer>
+      //<![CDATA[
+      app.initialize();
+      //]]>
+    </script>
+  </body>
+</html>

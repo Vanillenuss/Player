@@ -1,0 +1,92 @@
+Node version: v0.10.33
+
+Cordova version: 5.0.0
+
+Config.xml file: 
+
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="de.uni_luebeck.imis.infogrid" version="2.3" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>InfoGridPlayer</name>
+    <description>
+        InfoGrid provides information to owners on private mobile devices, which enriches their local physically experiences with virtual information. Via "geolocation" (including GPS) outside of buildings and "pattern recognition" inside, they are able to see the world through their mobile device and additional overlays they can interact with. This information (media) can consist of text, audio, image, video or 3D objects.
+    </description>
+    <author email="winkler@imis.uni-luebeck.de" href="http://infogrid.mesh.de">Thomas Winkler</author>
+    <preference name="BackgroundColor" value="0xffffffff"/>
+    <platform name="android">
+        <preference name="SplashScreen" value="screen"/>
+        <preference name="SplashScreenDelay" value="15000"/>
+        <preference name="Fullscreen" value="true" />
+        <preference name="ShowTitle" value="false"/>
+    </platform>
+    <content src="index.html" />
+    <access origin="*" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <allow-intent href="architect://*" />
+</widget>
+
+
+Plugins: 
+
+com.wikitude.phonegap.WikitudePlugin,cordova-plugin-whitelist,org.apache.cordova.console,org.apache.cordova.file,org.apache.cordova.file-transfer,org.apache.cordova.inappbrowser,org.apache.cordova.network-information,org.apache.cordova.splashscreen
+
+Android platform:
+
+Available Android targets:
+----------
+id: 1 or "android-21"
+     Name: Android 5.0.1
+     Type: Platform
+     API level: 21
+     Revision: 2
+     Skins: HVGA, QVGA, WQVGA400, WQVGA432, WSVGA, WVGA800 (default), WVGA854, WXGA720, WXGA800, WXGA800-7in
+ Tag/ABIs : no ABIs.
+----------
+id: 2 or "android-22"
+     Name: Android 5.1.1
+     Type: Platform
+     API level: 22
+     Revision: 2
+     Skins: HVGA, QVGA, WQVGA400, WQVGA432, WSVGA, WVGA800 (default), WVGA854, WXGA720, WXGA800, WXGA800-7in, AndroidWearRound, AndroidWearRound400x400, AndroidWearRoundChin320x290, AndroidWearSquare, AndroidWearSquare320x320, AndroidWearRound, AndroidWearRound400x400, AndroidWearRoundChin320x290, AndroidWearSquare, AndroidWearSquare320x320
+ Tag/ABIs : android-tv/armeabi-v7a, android-tv/x86, android-wear/armeabi-v7a, android-wear/x86, default/armeabi-v7a, default/x86, default/x86_64
+----------
+id: 3 or "Google Inc.:Google APIs:21"
+     Name: Google APIs
+     Type: Add-On
+     Vendor: Google Inc.
+     Revision: 1
+     Description: Android + Google APIs
+     Based on Android 5.0.1 (API level 21)
+     Libraries:
+      * com.android.future.usb.accessory (usb.jar)
+          API for USB Accessories
+      * com.google.android.media.effects (effects.jar)
+          Collection of video effects
+      * com.google.android.maps (maps.jar)
+          API for Google Maps
+     Skins: HVGA, QVGA, WQVGA400, WQVGA432, WSVGA, WVGA800 (default), WVGA854, WXGA720, WXGA800, WXGA800-7in
+ Tag/ABIs : google_apis/x86
+----------
+id: 4 or "Google Inc.:Google APIs:22"
+     Name: Google APIs
+     Type: Add-On
+     Vendor: Google Inc.
+     Revision: 1
+     Description: Android + Google APIs
+     Based on Android 5.1.1 (API level 22)
+     Libraries:
+      * com.android.future.usb.accessory (usb.jar)
+          API for USB Accessories
+      * com.google.android.media.effects (effects.jar)
+          Collection of video effects
+      * com.google.android.maps (maps.jar)
+          API for Google Maps
+     Skins: HVGA, QVGA, WQVGA400, WQVGA432, WSVGA, WVGA800 (default), WVGA854, WXGA720, WXGA800, WXGA800-7in, AndroidWearRound, AndroidWearRound400x400, AndroidWearRoundChin320x290, AndroidWearSquare, AndroidWearSquare320x320, AndroidWearRound, AndroidWearRound400x400, AndroidWearRoundChin320x290, AndroidWearSquare, AndroidWearSquare320x320
+ Tag/ABIs : google_apis/x86
+
+Error retrieving iOS platform information: Error: xcodebuild: Command failed with exit code ENOENT
+
